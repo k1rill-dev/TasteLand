@@ -1,0 +1,20 @@
+{%extends 'recipes/base.html'%}
+{%block content%}
+<h1 class="text-center">{{rec.title}}</h1>
+{%if rec.photo %}
+<div class="text-center">
+  <img src="{{rec.photo.url}}" class="rounded" alt="...">
+</div>
+{%endif%}
+<hr>
+<ul class="list-inline">
+  <li class="list-inline-item" style="margin-left: 10%;"><big>Категория:{{rec.category.name}}</big></li>
+  <li class="list-inline-item" style="margin-left: 50%;"><big>Время приготовления: {{rec.time}}</big></li>
+</ul>
+<hr>
+<h1 class="display-6 text-center">Энергетическая ценность</h1>
+<p class="lead">{{rec.energy_value}}</p>
+<hr>
+<h1 class="mx-auto display-6" style="width: 1210px; margin-top: 0.5em;">Рецепт:</h1>
+<p class="mx-auto" style="width: 1210px;">{{rec.content}}</p>
+{%endblock%}

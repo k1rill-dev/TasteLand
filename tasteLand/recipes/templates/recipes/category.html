@@ -1,0 +1,25 @@
+{%extends 'recipes/base.html'%}
+{%block content%}
+<h1 class="mx-auto" style="width: 1210px;">{{cat.name}}</h1>
+{%for r in rec%}
+<div class="card">
+  <div class="row g-0">
+    <div class="col-md-4">
+<!--      <svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>-->
+    <div class="text-center">
+          <img src="{{r.photo.url}}" height="250">
+    </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a href="{{r.get_absolute_url}}"><h5 class="card-title">{{r.title}}</h5></a>
+        <p class="card-text">{{r.content}}</p>
+        <p class="card-text"><small class="text-muted">{{r.dt_update}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% empty %}
+<h3 class="mx-auto" style="width: 1210px; margin-top: 2.5em;">Нет рецептов в данной категории</h3>
+{%endfor%}
+{%endblock%}
